@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Vesak Thorana</title>
+    <style>
+        body {
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Thorana Container */
+        .thorana-container {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Main Thorana Image */
+        .thorana-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            z-index: 2;
+        }
+
+        /* Lighting Effects (Bulbs) */
+        .light-ray {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 3;
+            mix-blend-mode: screen;
+        }
+
+        /* Animation Patterns for Lights */
+        @keyframes chaser-red {
+            0%, 100% { background: rgba(255, 0, 0, 0.8); box-shadow: 0 0 15px #ff0000; }
+            50% { background: rgba(255, 0, 0, 0.1); box-shadow: 0 0 0px transparent; }
+        }
+
+        @keyframes chaser-yellow {
+            0%, 100% { background: rgba(255, 234, 0, 0.8); box-shadow: 0 0 15px #ffea00; }
+            50% { background: rgba(255, 234, 0, 0.1); box-shadow: 0 0 0px transparent; }
+        }
+
+        @keyframes chaser-blue {
+            0%, 100% { background: rgba(0, 140, 255, 0.8); box-shadow: 0 0 15px #008cff; }
+            50% { background: rgba(0, 140, 255, 0.1); box-shadow: 0 0 0px transparent; }
+        }
+
+        /* Outer Aura Effect */
+        .outer-glow {
+            position: absolute;
+            width: 75%;
+            height: 85%;
+            top: 5%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,102,0,0.2) 0%, rgba(0,0,0,0) 70%);
+            z-index: 1;
+            animation: pulse-glow 3s infinite ease-in-out;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+        }
+
+        /* Creating individual light positions dynamically via CSS for preview */
+        .b1 { top: 25%; left: 50%; width: 12px; height: 12px; animation: chaser-red 0.6s infinite; }
+        .b2 { top: 30%; left: 62%; width: 12px; height: 12px; animation: chaser-yellow 0.6s infinite 0.2s; }
+        .b3 { top: 42%; left: 67%; width: 12px; height: 12px; animation: chaser-blue 0.6s infinite 0.4s; }
+        .b4 { top: 56%; left: 63%; width: 12px; height: 12px; animation: chaser-red 0.6s infinite 0.1s; }
+        .b5 { top: 62%; left: 50%; width: 12px; height: 12px; animation: chaser-yellow 0.6s infinite 0.3s; }
+        .b6 { top: 56%; left: 37%; width: 12px; height: 12px; animation: chaser-blue 0.6s infinite 0.5s; }
+        .b7 { top: 42%; left: 33%; width: 12px; height: 12px; animation: chaser-red 0.6s infinite 0.2s; }
+        .b8 { top: 30%; left: 38%; width: 12px; height: 12px; animation: chaser-yellow 0.6s infinite 0.4s; }
+
+        /* Audio Controls styling if needed */
+        .audio-text {
+            position: absolute;
+            bottom: 10px;
+            color: #555;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="outer-glow"></div>
+
+    <div class="thorana-container">
+        <!-- Verbatim image reference as requested -->
+        <img src="9352470180_1c03bb86dd_c_2.jpg" alt="Vesak Thorana" class="thorana-img">
+        
+        <!-- Digital Light Bulbs Overlay around the center circle -->
+        <div class="light-ray b1"></div>
+        <div class="light-ray b2"></div>
+        <div class="light-ray b3"></div>
+        <div class="light-ray b4"></div>
+        <div class="light-ray b5"></div>
+        <div class="light-ray b6"></div>
+        <div class="light-ray b7"></div>
+        <div class="light-ray b8"></div>
+    </div>
+
+    <div class="audio-text">පසුබිම් කථනය සහ භක්ති ගීත සඳහා HTML Audio Tag එකක් එක් කරගත හැක.</div>
+
+</body>
+</html>
