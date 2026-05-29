@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Vesak Thorana 2026 - KDX Team</title>
+    <title>Digital Vesak Thorana 2026 - KDX Team Edition</title>
     <style>
         body {
-            background-color: #000000;
+            background-color: #050505;
             margin: 0;
             padding: 0;
             display: flex;
@@ -19,26 +19,25 @@
             color: #fff;
         }
 
-        /* Main Screen Container */
+        /* Thorana Frame Wrapper */
         .thorana-wrapper {
             position: relative;
             width: 800px;
-            height: 720px;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
             align-items: center;
         }
 
-        /* Thorana Box Frame */
+        /* Thorana Main Container */
         .thorana-box {
             position: relative;
             width: 800px;
             height: 600px;
             background: #000;
+            border-radius: 8px;
+            box-shadow: 0 0 40px rgba(255, 153, 0, 0.2);
         }
 
-        /* Thorana Background Image */
         .thorana-bg {
             width: 100%;
             height: 100%;
@@ -47,87 +46,155 @@
             position: relative;
         }
 
-        /* Bulb Standard Styling */
+        /* Interactive Audio Controller Panel (FOS Media Style) */
+        .audio-panel {
+            background: rgba(15, 15, 15, 0.95);
+            border: 2px solid #ffcc00;
+            border-radius: 30px;
+            padding: 10px 25px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.2);
+            z-index: 10;
+        }
+
+        .audio-btn {
+            background: #ffcc00;
+            color: #000;
+            border: none;
+            padding: 8px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .audio-btn:hover {
+            background: #fff;
+            box-shadow: 0 0 15px #ffcc00;
+            transform: scale(1.05);
+        }
+
+        .status-text {
+            font-size: 13px;
+            color: #ffcc00;
+            letter-spacing: 1px;
+        }
+
+        /* Light Bulb Base */
         .bulb {
             position: absolute;
             border-radius: 50%;
             z-index: 3;
             pointer-events: none;
             mix-blend-mode: screen;
-            opacity: 0;
             width: 5px;
             height: 5px;
         }
 
-        /* --- High-Density Chaser Patterns --- */
-        @keyframes pattern-red {
-            0%, 100% { opacity: 1; background: #ff0055; box-shadow: 0 0 8px #ff0055, 0 0 15px #ff0000; }
-            50% { opacity: 0.1; background: transparent; box-shadow: none; }
+        /* --- Advanced Chaser Circuits Animations --- */
+        @keyframes pattern-one {
+            0%, 100% { background: #ff0055; box-shadow: 0 0 10px #ff0055, 0 0 18px #ff0000; opacity: 1; }
+            50% { background: transparent; box-shadow: none; opacity: 0.1; }
         }
 
-        @keyframes pattern-yellow {
-            0%, 100% { opacity: 0.1; background: transparent; box-shadow: none; }
-            50% { opacity: 1; background: #ffcc00; box-shadow: 0 0 8px #ffcc00, 0 0 15px #ffaa00; }
+        @keyframes pattern-two {
+            0%, 100% { background: transparent; box-shadow: none; opacity: 0.1; }
+            50% { background: #ffcc00; box-shadow: 0 0 10px #ffcc00, 0 0 18px #ffaa00; opacity: 1; }
         }
 
-        @keyframes pattern-blue {
-            0%, 33% { opacity: 1; background: #00ccff; box-shadow: 0 0 8px #00ccff, 0 0 15px #0000ff; }
-            34%, 100% { opacity: 0.1; background: transparent; box-shadow: none; }
+        @keyframes pattern-three {
+            0%, 33% { background: #00ccff; box-shadow: 0 0 10px #00ccff, 0 0 18px #0000ff; opacity: 1; }
+            34%, 100% { background: transparent; box-shadow: none; opacity: 0.1; }
         }
 
-        @keyframes pattern-green {
-            0%, 50% { opacity: 0.1; }
-            75% { opacity: 1; background: #00ff66; box-shadow: 0 0 10px #00ff66, 0 0 18px #00ff00; }
+        @keyframes pattern-four {
+            0%, 50% { opacity: 0.1; background: transparent; }
+            75% { background: #00ff66; box-shadow: 0 0 12px #00ff66, 0 0 20px #00ff00; opacity: 1; }
         }
 
-        /* Bottom Footer Bar Styling */
+        /* Bottom Credits Footer */
         .footer-bar {
             width: 100%;
             text-align: center;
-            padding: 15px 0;
-            z-index: 5;
-            background: linear-gradient(90deg, transparent, #111, transparent);
+            padding: 10px 0;
+            margin-top: 5px;
         }
 
         .kdx-team {
-            font-size: 24px;
-            font-weight: bold;
-            letter-spacing: 3px;
-            color: #ffcc00;
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            color: #ffffff;
             text-transform: uppercase;
-            text-shadow: 0 0 8px #ff3300, 0 0 20px #ff6600;
-            animation: team-glow 2s infinite ease-in-out;
+            animation: kdx-neon 2.5s infinite ease-in-out;
         }
 
-        @keyframes team-glow {
-            0%, 100% { text-shadow: 0 0 8px #ff3300, 0 0 20px #ff6600; color: #ffcc00; }
-            50% { text-shadow: 0 0 15px #00ffcc, 0 0 30px #00ccff; color: #ffffff; }
+        @keyframes kdx-neon {
+            0%, 100% { text-shadow: 0 0 10px #ff0055, 0 0 25px #ff0000, 0 0 40px #ff0055; color: #fff; }
+            50% { text-shadow: 0 0 15px #00ffcc, 0 0 30px #00ccff, 0 0 50px #00ffcc; color: #ffcc00; }
         }
     </style>
 </head>
 <body>
 
     <div class="thorana-wrapper">
-        <!-- Thorana Display -->
-        <div class="thorana-box" id="thoranaBox">
-            <!-- GitHub Raw Content එක හරහා පින්තූරය 100% ක්ම ලෝඩ් වන නිවැරදිම ලින්ක් එක -->
-            <img src="https://raw.githubusercontent.com/ytsonglk-arch/kdxthorana/main/9352470180_1c03bb86dd_c.jpg" 
-                 onerror="this.src='9352470180_1c03bb86dd_c.jpg';"
-                 alt="Vesak Thorana" class="thorana-bg">
+        <!-- Audio Management System (FOS Media Style) -->
+        <div class="audio-panel">
+            <button class="audio-btn" id="playBtn" onclick="toggleAudio()">Play Audio 📻</button>
+            <div class="status-text" id="statusText">AUDIO: PAUSED</div>
         </div>
 
-        <!-- Footer Credits -->
+        <!-- Hidden Audio Element: ඕනෑම බෞද්ධ භක්ති ගීතයක හෝ පිරිත් ලින්ක් එකක් මෙතන src එකට දාන්න පුළුවන් -->
+        <audio id="thoranaAudio" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
+
+        <!-- Thorana Container -->
+        <div class="thorana-box" id="thoranaBox">
+            <!-- 100% Fixed Raw Link -->
+            <img src="https://raw.githubusercontent.com/ytsonglk-arch/kdxthorana/main/9352470180_1c03bb86dd_c.jpg" 
+                 onerror="this.src='9352470180_1c03bb86dd_c.jpg';"
+                 alt="Digital Vesak Thorana" class="thorana-bg">
+        </div>
+
+        <!-- Powered By KDX Team Premium Footer -->
         <div class="footer-bar">
-            <div class="kdx-team">⚡ Powered by KDX Team ⚡</div>
+            <div class="kdx-team">⚡ POWERED BY KDX TEAM ⚡</div>
         </div>
     </div>
 
-    <!-- JavaScript to automatically generate thousands of changing light circuits -->
+    <!-- Script generating 1500+ multi-pattern chaser lights -->
     <script>
         const box = document.getElementById('thoranaBox');
+        const audio = document.getElementById('thoranaAudio');
+        const playBtn = document.getElementById('playBtn');
+        const statusText = document.getElementById('statusText');
+
+        // Audio Interactive Controls
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play().then(() => {
+                    playBtn.innerText = "Pause Audio ⏸️";
+                    statusText.innerText = "AUDIO: PLAYING NOW";
+                    statusText.style.color = "#00ff66";
+                }).catch(err => {
+                    alert("Click again to allow audio playback!");
+                });
+            } else {
+                audio.pause();
+                playBtn.innerText = "Play Audio 📻";
+                statusText.innerText = "AUDIO: PAUSED";
+                statusText.style.color = "#ffcc00";
+            }
+        }
         
-        // Function to create rings of lights (බුදුරැස් සහ පින්තූර වටා)
-        function createChaserCircle(centerX, centerY, radius, count, animType, delayOffset, bSize = 5) {
+        // Dynamic Bulb Matrix Generators
+        function createCirclePattern(centerX, centerY, radius, count, animModulo, shift, size=5) {
             for (let i = 0; i < count; i++) {
                 const angle = (i / count) * 2 * Math.PI;
                 const x = centerX + radius * Math.cos(angle);
@@ -137,20 +204,17 @@
                 bulb.className = 'bulb';
                 bulb.style.left = `${x}%`;
                 bulb.style.top = `${y}%`;
-                bulb.style.width = `${bSize}px`;
-                bulb.style.height = `${bSize}px`;
+                bulb.style.width = `${size}px`;
+                bulb.style.height = `${size}px`;
                 
-                const anims = ['pattern-red', 'pattern-yellow', 'pattern-blue', 'pattern-green'];
-                const selectedAnim = anims[(i + delayOffset) % animType];
-                const speed = 0.35 + ((i % 3) * 0.05);
-                
-                bulb.style.animation = `${selectedAnim} ${speed}s infinite`;
+                const styles = ['pattern-one', 'pattern-two', 'pattern-three', 'pattern-four'];
+                const assigned = styles[(i + shift) % animModulo];
+                bulb.style.animation = `${assigned} 0.4s infinite ${i * 0.01}s`;
                 box.appendChild(bulb);
             }
         }
 
-        // Function to create massive arch light curves
-        function createArchLights(startY, startX, width, height, count, delay, speedMultiplier = 0.5) {
+        function createCurvePattern(startY, startX, width, height, count, shift, speed=0.4) {
             for(let i=0; i<count; i++) {
                 const pct = i / count;
                 const x = startX + (pct * width);
@@ -161,51 +225,48 @@
                 bulb.style.left = `${x}%`;
                 bulb.style.top = `${y}%`;
                 
-                const anims = ['pattern-yellow', 'pattern-red', 'pattern-blue', 'pattern-green'];
-                // Creates a running wave effect (Chaser loop)
-                bulb.style.animation = `${anims[i % 4]} ${speedMultiplier}s infinite ${i * 0.015}s`;
+                const styles = ['pattern-two', 'pattern-one', 'pattern-three', 'pattern-four'];
+                bulb.style.animation = `${styles[i % 4]} ${speed}s infinite ${i * 0.012}s`;
                 box.appendChild(bulb);
             }
         }
 
-        // 1. Center Buddha Aura Rays - බුදුරැස් මාලාව (දැන් බුබුළු වළලු 5ක්ම තියෙනවා)
-        createChaserCircle(50, 44, 11, 40, 4, 0);
-        createChaserCircle(50, 44, 13, 50, 4, 1);
-        createChaserCircle(50, 44, 15, 60, 4, 2);
-        createChaserCircle(50, 44, 17, 70, 4, 3);
-        createChaserCircle(50, 44, 19, 80, 4, 4);
+        // --- Bulbs Deployment (1500+ Bulbs Total) ---
+        
+        // 1. Center Buddha Aura Rings (බුදුරැස් වළලු 6ක්)
+        for(let r=10; r<=20; r+=2) {
+            createCirclePattern(50, 44, r, r*4, 4, r);
+        }
 
-        // 2. Jathaka Katha Picture Frames (පින්තූර 6 වටා ඝනකමට බුබුළු වැල්)
-        const frames = [
+        // 2. Picture Panels Overlays (ජාතක කථා පින්තූර 6 වටා ඝන ලයිට් වැල්)
+        const frameCoordinates = [
             {x: 41, y: 19}, {x: 59, y: 19},
             {x: 29, y: 32}, {x: 71, y: 32},
             {x: 29, y: 53}, {x: 71, y: 53}
         ];
-        
-        frames.forEach((f, idx) => {
-            createChaserCircle(f.x, f.y, 6, 30, 3, idx, 4);
-            createChaserCircle(f.x, f.y, 7, 35, 3, idx + 1, 4);
+        frameCoordinates.forEach((coord, index) => {
+            createCirclePattern(coord.x, coord.y, 5.8, 26, 3, index, 4);
+            createCirclePattern(coord.x, coord.y, 6.8, 32, 3, index+1, 4);
         });
 
-        // 3. Main Outer Border Arch - පිටත මල් කැටයම් (බුබුළු වැල් 4ක් එක පිට එක දුවනවා)
-        createArchLights(43, 12, 76, 40, 90, 0, 0.4);
-        createArchLights(45, 10, 80, 42, 100, 0.1, 0.4);
-        createArchLights(47, 8, 84, 45, 110, 0.2, 0.4);
-        createArchLights(49, 6, 88, 48, 120, 0.3, 0.4);
+        // 3. Huge Outer Edge Arches (තොරණ වටේම යන ලොකුම රන් වැල් 5ක්)
+        createCurvePattern(41, 14, 72, 38, 80, 0, 0.35);
+        createCurvePattern(43, 12, 76, 40, 95, 1, 0.35);
+        createCurvePattern(45, 10, 80, 42, 110, 2, 0.35);
+        createCurvePattern(47, 8, 84, 45, 120, 3, 0.35);
+        createCurvePattern(49, 6, 88, 48, 130, 4, 0.35);
         
-        // 4. Bottom Yellow Display Panel Border (පහළ බෝඩ් එක වටා බුබුළු සිය ගණනක්)
-        for(let x = 16; x <= 84; x += 1.0) {
-            // Top border line
+        // 4. Bottom Information Panel Chaser Borders
+        for(let x = 16; x <= 84; x += 0.8) {
+            // Line 1
             let b1 = document.createElement('div'); b1.className = 'bulb'; b1.style.left = `${x}%`; b1.style.top = `75%`;
-            b1.style.animation = `pattern-red 0.5s infinite ${(x%4)*0.08}s`; box.appendChild(b1);
-            
-            // Middle border line
+            b1.style.animation = `pattern-one 0.4s infinite ${(x%4)*0.05}s`; box.appendChild(b1);
+            // Line 2
             let b2 = document.createElement('div'); b2.className = 'bulb'; b2.style.left = `${x}%`; b2.style.top = `76.5%`;
-            b2.style.animation = `pattern-blue 0.5s infinite ${(x%4)*0.08}s`; box.appendChild(b2);
-
-            // Bottom border line
+            b2.style.animation = `pattern-three 0.4s infinite ${(x%4)*0.05}s`; box.appendChild(b2);
+            // Line 3
             let b3 = document.createElement('div'); b3.className = 'bulb'; b3.style.left = `${x}%`; b3.style.top = `91%`;
-            b3.style.animation = `pattern-yellow 0.5s infinite ${(x%4)*0.08}s`; box.appendChild(b3);
+            b3.style.animation = `pattern-two 0.4s infinite ${(x%4)*0.05}s`; box.appendChild(b3);
         }
     </script>
 </body>
