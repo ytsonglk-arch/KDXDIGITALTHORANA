@@ -15,7 +15,7 @@
             align-items: center;
             min-height: 100vh;
             overflow-x: hidden;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
         }
 
         h2 {
@@ -51,8 +51,8 @@
             position: absolute;
             border-radius: 50%;
             z-index: 3;
-            width: 8px;
-            height: 8px;
+            width: 10px;
+            height: 10px;
             mix-blend-mode: screen;
             opacity: 0;
         }
@@ -60,22 +60,22 @@
         /* Animations for realistic lighting */
         @keyframes flash-red {
             0%, 100% { opacity: 0; background: transparent; box-shadow: none; }
-            50% { opacity: 1; background: #ff0055; box-shadow: 0 0 12px #ff0055, 0 0 20px #ff0000; }
+            50% { opacity: 1; background: #ff0055; box-shadow: 0 0 15px #ff0055, 0 0 25px #ff0000; }
         }
 
         @keyframes flash-yellow {
-            0%, 100% { opacity: 1; background: #ffcc00; box-shadow: 0 0 12px #ffcc00, 0 0 20px #ffaa00; }
+            0%, 100% { opacity: 1; background: #ffcc00; box-shadow: 0 0 15px #ffcc00, 0 0 25px #ffaa00; }
             50% { opacity: 0; background: transparent; box-shadow: none; }
         }
 
         @keyframes flash-blue {
             0%, 50%, 100% { opacity: 0; }
-            25%, 75% { opacity: 1; background: #00ccff; box-shadow: 0 0 12px #00ccff, 0 0 20px #0000ff; }
+            25%, 75% { opacity: 1; background: #00ccff; box-shadow: 0 0 15px #00ccff, 0 0 25px #0000ff; }
         }
 
         @keyframes flash-green {
             0%, 100% { opacity: 0.3; background: #00ff66; box-shadow: 0 0 5px #00ff66; }
-            50% { opacity: 1; background: #00ff66; box-shadow: 0 0 15px #00ff66, 0 0 25px #00ff00; }
+            50% { opacity: 1; background: #00ff66; box-shadow: 0 0 20px #00ff66, 0 0 30px #00ff00; }
         }
 
         /* --- Bulb Positions --- */
@@ -90,12 +90,12 @@
         .c8 { top: 34%; left: 41%; animation: flash-yellow 0.8s infinite 0.8s; }
 
         /* Jathaka Katha Pictures Highlights */
-        .p1 { top: 12%; left: 41%; width: 10px; height: 10px; animation: flash-green 1.2s infinite; }
-        .p2 { top: 12%; left: 59%; width: 10px; height: 10px; animation: flash-green 1.2s infinite 0.2s; }
-        .p3 { top: 31%; left: 26%; width: 10px; height: 10px; animation: flash-green 1.2s infinite 0.4s; }
-        .p4 { top: 31%; left: 74%; width: 10px; height: 10px; animation: flash-green 1.2s infinite 0.6s; }
-        .p5 { top: 51%; left: 26%; width: 10px; height: 10px; animation: flash-green 1.2s infinite 0.8s; }
-        .p6 { top: 51%; left: 74%; width: 10px; height: 10px; animation: flash-green 1.2s infinite 1.0s; }
+        .p1 { top: 12%; left: 41%; width: 12px; height: 12px; animation: flash-green 1.2s infinite; }
+        .p2 { top: 12%; left: 59%; width: 12px; height: 12px; animation: flash-green 1.2s infinite 0.2s; }
+        .p3 { top: 31%; left: 26%; width: 12px; height: 12px; animation: flash-green 1.2s infinite 0.4s; }
+        .p4 { top: 31%; left: 74%; width: 12px; height: 12px; animation: flash-green 1.2s infinite 0.6s; }
+        .p5 { top: 51%; left: 26%; width: 12px; height: 12px; animation: flash-green 1.2s infinite 0.8s; }
+        .p6 { top: 51%; left: 74%; width: 12px; height: 12px; animation: flash-green 1.2s infinite 1.0s; }
 
         /* Outer Border Arch Lights */
         .o1 { top: 5%; left: 50%; animation: flash-red 0.5s infinite; }
@@ -105,32 +105,15 @@
         .o5 { top: 21%; left: 82%; animation: flash-yellow 0.5s infinite 0.4s; }
         .o6 { top: 42%; left: 11%; animation: flash-blue 0.5s infinite 0.5s; }
         .o7 { top: 42%; left: 89%; animation: flash-red 0.5s infinite 0.6s; }
-
-        /* Bottom Boarder */
-        .b1 { bottom: 21%; left: 20%; animation: flash-yellow 0.4s infinite; }
-        .b2 { bottom: 21%; left: 50%; animation: flash-red 0.4s infinite 0.2s; }
-        .b3 { bottom: 21%; left: 80%; animation: flash-blue 0.4s infinite 0.4s; }
-
-        /* Audio Panel Style */
-        .audio-panel {
-            margin-top: 20px;
-            background: #222;
-            padding: 10px 20px;
-            border-radius: 30px;
-            border: 1px solid #ffcc00;
-            z-index: 10;
-        }
     </style>
 </head>
 <body>
 
-    <h2>ඩිජිටල් වෙසක් තොරණ සන්දර්ශනය</h2>
+    <h2>ඩිජිටල් වෙසක් තොරණ</h2>
 
     <div class="thorana-box">
-        <!-- Image direct link layout to ensure it works on GitHub Pages -->
-        <img src="https://raw.githubusercontent.com/ytsonglk-arch/KDXDIGITALTHORANA/main/9352470180_1c03bb86dd_c_2.jpg" 
-             onerror="this.src='9352470180_1c03bb86dd_c_2.jpg'" 
-             alt="9352470180_1c03bb86dd_c_2.jpg" class="thorana-bg">
+        <!-- මෙන්න GitHub එකට කෙලින්ම වැඩ කරන Relative Path එක -->
+        <img src="9352470180_1c03bb86dd_c_2.jpg" alt="9352470180_1c03bb86dd_c_2.jpg" class="thorana-bg">
         
         <!-- Center Mandala Lights -->
         <div class="bulb c1"></div><div class="bulb c2"></div>
@@ -148,17 +131,6 @@
         <div class="bulb o3"></div><div class="bulb o4"></div>
         <div class="bulb o5"></div><div class="bulb o6"></div>
         <div class="bulb o7"></div>
-
-        <!-- Bottom Panel Lights -->
-        <div class="bulb b1"></div><div class="bulb b2"></div><div class="bulb b3"></div>
-    </div>
-
-    <!-- Background Music Player -->
-    <div class="audio-panel">
-        <audio controls autoplay loop>
-            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
     </div>
 
 </body>
