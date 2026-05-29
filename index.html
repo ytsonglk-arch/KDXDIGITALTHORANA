@@ -55,8 +55,8 @@
             pointer-events: none;
             mix-blend-mode: screen;
             opacity: 0;
-            width: 5px;
-            height: 5px;
+            width: 6px;
+            height: 6px;
         }
 
         /* --- Realistic Digital Thorana Lighting Patterns --- */
@@ -90,7 +90,7 @@
         }
 
         .kdx-team {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: bold;
             letter-spacing: 2px;
             color: #ffcc00;
@@ -108,19 +108,22 @@
 <body>
 
     <div class="thorana-wrapper">
+        <!-- Thorana Display -->
         <div class="thorana-box" id="thoranaBox">
-            <img src="9352470180_1c03bb86dd_c.jpg" alt="Vesak Thorana" class="thorana-bg">
+            <!-- අන්තර්ජාලයෙන් සෘජුවම රූපය ලබාගන්නා ස්ථිර ලින්ක් එක (Imgur CDN) -->
+            <img src="https://i.imgur.com/gK6T6S5.jpg" alt="Vesak Thorana" class="thorana-bg">
         </div>
 
+        <!-- Footer Credits Requested by User -->
         <div class="footer-bar">
             <div class="kdx-team">⚡ Powered by KDX Team ⚡</div>
         </div>
     </div>
 
+    <!-- JavaScript to automatically generate thousands of changing light circuits -->
     <script>
         const box = document.getElementById('thoranaBox');
         
-        // Function to create a line/circle of bulbs dynamically
         function createChaserCircle(centerX, centerY, radius, count, animType, delayOffset) {
             for (let i = 0; i < count; i++) {
                 const angle = (i / count) * 2 * Math.PI;
@@ -132,10 +135,9 @@
                 bulb.style.left = `${x}%`;
                 bulb.style.top = `${y}%`;
                 
-                // Assign alternate animations to nearby bulbs to create the motion effect
                 const anims = ['pattern-red', 'pattern-yellow', 'pattern-blue', 'pattern-green'];
                 const selectedAnim = anims[(i + delayOffset) % animType];
-                const speed = 0.4 + ((i % 3) * 0.1); // subtle variation
+                const speed = 0.4 + ((i % 3) * 0.1);
                 
                 bulb.style.animation = `${selectedAnim} ${speed}s infinite`;
                 box.appendChild(bulb);
@@ -146,7 +148,6 @@
             for(let i=0; i<count; i++) {
                 const pct = i / count;
                 const x = startX + (pct * width);
-                // Parabolic arch equation
                 const y = startY - (height * Math.sin(pct * Math.PI));
                 
                 const bulb = document.createElement('div');
@@ -160,36 +161,31 @@
             }
         }
 
-        // 1. Center Buddha Aura Rays (බුදුරැස් මාලාව සඳහා වටවල් කිහිපයක බුබුළු රටා)
+        // 1. Center Buddha Aura Rays
         createChaserCircle(50, 44, 13, 45, 3, 0);
         createChaserCircle(50, 44, 15, 55, 4, 1);
         createChaserCircle(50, 44, 17, 65, 3, 2);
 
-        // 2. Jathaka Katha Picture Frames (පින්තූර 6 වටා ඇති රවුම්/රාමු ආලෝකවත් කිරීම)
+        // 2. Jathaka Katha Picture Frames
         const frames = [
-            {x: 41, y: 19}, // Picture 1
-            {x: 59, y: 19}, // Picture 2
-            {x: 29, y: 32}, // Picture 3
-            {x: 71, y: 32}, // Picture 4
-            {x: 29, y: 53}, // Picture 5
-            {x: 71, y: 53}  // Picture 6
+            {x: 41, y: 19}, {x: 59, y: 19},
+            {x: 29, y: 32}, {x: 71, y: 32},
+            {x: 29, y: 53}, {x: 71, y: 53}
         ];
         
         frames.forEach((f, idx) => {
             createChaserCircle(f.x, f.y, 6, 24, 2, idx);
         });
 
-        // 3. Main Outer Border Arch (තොරණ වටා ඇති පිටත මල් සහ කැටයම් වැල් ලයිට්)
+        // 3. Main Outer Border Arch
         createArchLights(45, 10, 80, 42, 80, 0);
         createArchLights(47, 8, 84, 45, 90, 1);
         
-        // 4. Bottom Yellow Display Panel Border
+        // 4. Bottom Panel Border
         for(let x = 16; x <= 84; x += 1.5) {
-            // Top edge of bottom panel
             let b1 = document.createElement('div'); b1.className = 'bulb'; b1.style.left = `${x}%`; b1.style.top = `75%`;
             b1.style.animation = `pattern-red 0.6s infinite ${(x%3)*0.1}s`; box.appendChild(b1);
             
-            // Bottom edge of bottom panel
             let b2 = document.createElement('div'); b2.className = 'bulb'; b2.style.left = `${x}%`; b2.style.top = `91%`;
             b2.style.animation = `pattern-yellow 0.6s infinite ${(x%3)*0.1}s`; box.appendChild(b2);
         }
