@@ -14,24 +14,23 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            overflow-x: hidden;
+            overflow: hidden;
             font-family: Arial, sans-serif;
         }
 
         h2 {
             color: #ffcc00;
             text-shadow: 0 0 10px #ff6600;
-            margin-bottom: 5px;
+            margin-bottom: 15px;
             font-size: 24px;
         }
 
         /* Thorana Main Frame */
         .thorana-box {
             position: relative;
-            width: 900px;
-            height: 675px;
+            width: 800px;
+            height: 600px;
             box-shadow: 0 0 50px rgba(255, 102, 0, 0.3);
-            border-radius: 10px;
             background: #000;
             display: flex;
             justify-content: center;
@@ -51,86 +50,83 @@
             position: absolute;
             border-radius: 50%;
             z-index: 3;
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             mix-blend-mode: screen;
-            opacity: 0;
         }
 
         /* Animations for realistic lighting */
-        @keyframes flash-red {
-            0%, 100% { opacity: 0; background: transparent; box-shadow: none; }
-            50% { opacity: 1; background: #ff0055; box-shadow: 0 0 15px #ff0055, 0 0 25px #ff0000; }
+        @keyframes flow-1 {
+            0%, 100% { background: #ff0055; box-shadow: 0 0 12px #ff0055, 0 0 20px #ff0000; opacity: 1; }
+            33% { background: #ffcc00; box-shadow: 0 0 12px #ffcc00, 0 0 20px #ffaa00; opacity: 1; }
+            66% { background: #00ccff; box-shadow: 0 0 12px #00ccff, 0 0 20px #0000ff; opacity: 1; }
         }
 
-        @keyframes flash-yellow {
-            0%, 100% { opacity: 1; background: #ffcc00; box-shadow: 0 0 15px #ffcc00, 0 0 25px #ffaa00; }
-            50% { opacity: 0; background: transparent; box-shadow: none; }
+        @keyframes flow-2 {
+            0%, 100% { background: #00ccff; box-shadow: 0 0 12px #00ccff, 0 0 20px #0000ff; opacity: 1; }
+            33% { background: #ff0055; box-shadow: 0 0 12px #ff0055, 0 0 20px #ff0000; opacity: 1; }
+            66% { background: #ffcc00; box-shadow: 0 0 12px #ffcc00, 0 0 20px #ffaa00; opacity: 1; }
         }
 
-        @keyframes flash-blue {
-            0%, 50%, 100% { opacity: 0; }
-            25%, 75% { opacity: 1; background: #00ccff; box-shadow: 0 0 15px #00ccff, 0 0 25px #0000ff; }
+        @keyframes flow-3 {
+            0%, 100% { background: #ffcc00; box-shadow: 0 0 12px #ffcc00, 0 0 20px #ffaa00; opacity: 1; }
+            33% { background: #00ccff; box-shadow: 0 0 12px #00ccff, 0 0 20px #0000ff; opacity: 1; }
+            66% { background: #ff0055; box-shadow: 0 0 12px #ff0055, 0 0 20px #ff0000; opacity: 1; }
         }
 
-        @keyframes flash-green {
-            0%, 100% { opacity: 0.3; background: #00ff66; box-shadow: 0 0 5px #00ff66; }
-            50% { opacity: 1; background: #00ff66; box-shadow: 0 0 20px #00ff66, 0 0 30px #00ff00; }
-        }
+        /* --- Bulb Positions (Chaser Loop around Buddha) --- */
+        .c1 { top: 31%; left: 50%; animation: flow-1 0.6s infinite; }
+        .c2 { top: 32%; left: 55%; animation: flow-2 0.6s infinite; }
+        .c3 { top: 35%; left: 59%; animation: flow-3 0.6s infinite; }
+        .c4 { top: 39%; left: 62%; animation: flow-1 0.6s infinite; }
+        .c5 { top: 44%; left: 63%; animation: flow-2 0.6s infinite; }
+        .c6 { top: 49%; left: 62%; animation: flow-3 0.6s infinite; }
+        .c7 { top: 53%; left: 59%; animation: flow-1 0.6s infinite; }
+        .c8 { top: 55%; left: 55%; animation: flow-2 0.6s infinite; }
+        .c9 { top: 56%; left: 50%; animation: flow-3 0.6s infinite; }
+        .c10 { top: 55%; left: 45%; animation: flow-1 0.6s infinite; }
+        .c11 { top: 53%; left: 41%; animation: flow-2 0.6s infinite; }
+        .c12 { top: 49%; left: 38%; animation: flow-3 0.6s infinite; }
+        .c13 { top: 44%; left: 37%; animation: flow-1 0.6s infinite; }
+        .c14 { top: 39%; left: 38%; animation: flow-2 0.6s infinite; }
+        .c15 { top: 35%; left: 41%; animation: flow-3 0.6s infinite; }
+        .c16 { top: 32%; left: 45%; animation: flow-1 0.6s infinite; }
 
-        /* --- Bulb Positions --- */
-        /* Center Circle Lights (Chaser effect) */
-        .c1 { top: 31%; left: 50%; animation: flash-red 0.8s infinite 0.1s; }
-        .c2 { top: 34%; left: 59%; animation: flash-yellow 0.8s infinite 0.2s; }
-        .c3 { top: 43%; left: 63%; animation: flash-blue 0.8s infinite 0.3s; }
-        .c4 { top: 52%; left: 59%; animation: flash-red 0.8s infinite 0.4s; }
-        .c5 { top: 55%; left: 50%; animation: flash-yellow 0.8s infinite 0.5s; }
-        .c6 { top: 52%; left: 41%; animation: flash-blue 0.8s infinite 0.6s; }
-        .c7 { top: 43%; left: 37%; animation: flash-red 0.8s infinite 0.7s; }
-        .c8 { top: 34%; left: 41%; animation: flash-yellow 0.8s infinite 0.8s; }
-
-        /* Jathaka Katha Pictures Highlights */
-        .p1 { top: 12%; left: 41%; width: 12px; height: 12px; animation: flash-green 1.2s infinite; }
-        .p2 { top: 12%; left: 59%; width: 12px; height: 12px; animation: flash-green 1.2s infinite 0.2s; }
-        .p3 { top: 31%; left: 26%; width: 12px; height: 12px; animation: flash-green 1.2s infinite 0.4s; }
-        .p4 { top: 31%; left: 74%; width: 12px; height: 12px; animation: flash-green 1.2s infinite 0.6s; }
-        .p5 { top: 51%; left: 26%; width: 12px; height: 12px; animation: flash-green 1.2s infinite 0.8s; }
-        .p6 { top: 51%; left: 74%; width: 12px; height: 12px; animation: flash-green 1.2s infinite 1.0s; }
-
-        /* Outer Border Arch Lights */
-        .o1 { top: 5%; left: 50%; animation: flash-red 0.5s infinite; }
-        .o2 { top: 8%; left: 33%; animation: flash-yellow 0.5s infinite 0.1s; }
-        .o3 { top: 8%; left: 67%; animation: flash-blue 0.5s infinite 0.2s; }
-        .o4 { top: 21%; left: 18%; animation: flash-red 0.5s infinite 0.3s; }
-        .o5 { top: 21%; left: 82%; animation: flash-yellow 0.5s infinite 0.4s; }
-        .o6 { top: 42%; left: 11%; animation: flash-blue 0.5s infinite 0.5s; }
-        .o7 { top: 42%; left: 89%; animation: flash-red 0.5s infinite 0.6s; }
+        /* Outer Frame Bulbs */
+        .o1 { top: 3%; left: 50%; animation: flow-1 0.4s infinite; }
+        .o2 { top: 5%; left: 42%; animation: flow-2 0.4s infinite; }
+        .o3 { top: 5%; left: 58%; animation: flow-3 0.4s infinite; }
+        .o4 { top: 9%; left: 34%; animation: flow-1 0.4s infinite; }
+        .o5 { top: 9%; left: 66%; animation: flow-2 0.4s infinite; }
+        .o6 { top: 15%; left: 26%; animation: flow-3 0.4s infinite; }
+        .o7 { top: 15%; left: 74%; animation: flow-1 0.4s infinite; }
+        .o8 { top: 23%; left: 19%; animation: flow-2 0.4s infinite; }
+        .o9 { top: 23%; left: 81%; animation: flow-3 0.4s infinite; }
+        .o10 { top: 33%; left: 14%; animation: flow-1 0.4s infinite; }
+        .o11 { top: 33%; left: 86%; animation: flow-2 0.4s infinite; }
+        .o12 { top: 44%; left: 11%; animation: flow-3 0.4s infinite; }
+        .o13 { top: 44%; left: 89%; animation: flow-1 0.4s infinite; }
     </style>
 </head>
 <body>
 
-    <h2>ඩිජිටල් වෙසක් තොරණ</h2>
+    <h2>ඩිජිටල් වෙසක් තොරණ සන්දර්ශනය</h2>
 
     <div class="thorana-box">
-        <!-- මෙන්න GitHub එකට කෙලින්ම වැඩ කරන Relative Path එක -->
-        <img src="9352470180_1c03bb86dd_c_2.jpg" alt="9352470180_1c03bb86dd_c_2.jpg" class="thorana-bg">
+        <!-- නිවැරදිම රූපයේ නම (Relative Path) -->
+        <img src="9352470180_1c03bb86dd_c_2.jpg" alt="Vesak Thorana" class="thorana-bg">
         
-        <!-- Center Mandala Lights -->
-        <div class="bulb c1"></div><div class="bulb c2"></div>
-        <div class="bulb c3"></div><div class="bulb c4"></div>
-        <div class="bulb c5"></div><div class="bulb c6"></div>
-        <div class="bulb c7"></div><div class="bulb c8"></div>
+        <!-- Center Loop Lights -->
+        <div class="bulb c1"></div><div class="bulb c2"></div><div class="bulb c3"></div><div class="bulb c4"></div>
+        <div class="bulb c5"></div><div class="bulb c6"></div><div class="bulb c7"></div><div class="bulb c8"></div>
+        <div class="bulb c9"></div><div class="bulb c10"></div><div class="bulb c11"></div><div class="bulb c12"></div>
+        <div class="bulb c13"></div><div class="bulb c14"></div><div class="bulb c15"></div><div class="bulb c16"></div>
 
-        <!-- Jathaka Katha Frame Lights -->
-        <div class="bulb p1"></div><div class="bulb p2"></div>
-        <div class="bulb p3"></div><div class="bulb p4"></div>
-        <div class="bulb p5"></div><div class="bulb p6"></div>
-
-        <!-- Outer Border Lights -->
-        <div class="bulb o1"></div><div class="bulb o2"></div>
-        <div class="bulb o3"></div><div class="bulb o4"></div>
-        <div class="bulb o5"></div><div class="bulb o6"></div>
-        <div class="bulb o7"></div>
+        <!-- Outer Frame Lights -->
+        <div class="bulb o1"></div><div class="bulb o2"></div><div class="bulb o3"></div><div class="bulb o4"></div>
+        <div class="bulb o5"></div><div class="bulb o6"></div><div class="bulb o7"></div><div class="bulb o8"></div>
+        <div class="bulb o9"></div><div class="bulb o10"></div><div class="bulb o11"></div><div class="bulb o12"></div>
+        <div class="bulb o13"></div>
     </div>
 
 </body>
